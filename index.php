@@ -3,17 +3,29 @@
   <title>getElementById example</title>
 </head>
 <body>
-  <?php
-    echo "Hello World!";
-  ?>
-  <label for "button1">Regador1 </label><button onclick="changeColor('yellow');" id="button1">Probar</button><br> 
-  <p id="tiempo2"> 00:00 </p>
   
-  <label for "estado1"> Activar regador</label><input type="checkbox" id="estado1" name="estado1" checked><br>
   
-  <label for="hora1">Hora de inicio</label><input type="time" id="hora1" value="12:00" name="hora1"> <br>
+  <?php  
+  for ($i = 0; $i <= 10; $i++) {
+    if ($i%2 == 1){
+    $checa="checked";
+    }else {
+    $checa="";
+    }
   
-  <label for="tiempo1">Tiempo (en minutos):</label><input type="number" id="tiempo1" name="tiempo1" value="10" min="1" max="100"><br>
+    echo "<label for='button_$i'>Regador1 </label><button onclick='changeColor('yellow');' id='button_$i'>'Encender 5 minutos'</button><br>";
+    
+    echo "<label for='estado_$i'> Habilitar</label><input type='checkbox' id='estado_$i' name='estado_$i' $checa><br>";
+
+	  echo "<label for='hora_$i'>Hora de inicio</label><input type='time' id='hora_$i' value='12:00' name='hora_$i'> <br>";
+
+    echo "<label for='tiempo_$i'>Tiempo (en minutos):</label><input type='number' id='tiempo_$i' name='tiempo_$i' value='10' min='1' max='100'><br>";
+
+    echo "<button onclick='updateDate();' id='prog_$i'>Programar</button> <br>";
+    
+    echo "<p id='confirm_$i'></p><br>";  
+  }
+?> 
   
   <p id="text1">Regadores</p>
   <p id="fecha0">Date/Time:</p>
