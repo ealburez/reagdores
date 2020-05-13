@@ -8,17 +8,17 @@
 	<?php  
   	for ($i = 1; $i <= 3; $i++) {
 			if ($i%2 == 1){
-			$checa="checked";
+				$checa="checked";
 			}else {
-			$checa="";
+				$checa="";
 			}
+			
   		<!--Creación de los controles de los regadores-->
 			echo "<label for='button_$i'>Regador $i </label><button onclick='changeColor('yellow');' id='button_$i'>'Encender 5 minutos'</button><br>";
 			echo "<label for='estado_$i'> Habilitar</label><input type='checkbox' id='estado_$i' name='estado_$i' $checa><br>";
 			echo "<label for='hora_$i'>Hora de inicio</label><input type='time' id='hora_$i' value='12:00' name='hora_$i'> <br>";
 			echo "<label for='tiempo_$i'>Tiempo (en minutos):</label><input type='number' id='tiempo_$i' name='tiempo_$i' value='10' min='1' max='100'><br>";
-			echo "<p id='confirm_$i'></p><br><br>";  
-  }
+	}
 	?>
 	
 	<button onclick="updateDate();" id="prog1">Programar</button> <br>
