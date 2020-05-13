@@ -6,13 +6,16 @@
 	<p id="text1">Regadores</p>
 
 	<?php  
-  	for ($i = 1; $i <= 3; $i++) {
+  	$numRega=3;
+	
+	echo "<label>Total regadores:</label><label id='numRega'> $numRega</label><br><br>";	
+	for ($i = 1; $i <= $numRega; $i++) {
 			if ($i%2 == 1){
 				$checa="checked";
 			}else {
 				$checa="";
 			}
-			
+		
   		<!--Creación de los controles de los regadores-->
 			echo "<label for='button_$i'>Regador $i </label><button onclick='changeColor('yellow');' id='button_$i'>'Encender 5 minutos'</button><br>";
 			echo "<label for='estado_$i'> Habilitar</label><input type='checkbox' id='estado_$i' name='estado_$i' $checa><br>";
