@@ -43,4 +43,5 @@ function updateDate() {
   //document.getElementById("tiempo1").value = 10;
   //document.getElementById("hora1").value = "02:08"
   //document.getElementById("hora1").value = output
+}
 
