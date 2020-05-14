@@ -12,7 +12,7 @@
 	for ($i = 1; $i <= $numRega; $i++) {
 			if ($i%2 == 1){
 				$checa="checked";
-			}else {
+			} else {
 				$checa="";
 			}
 		
