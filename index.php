@@ -33,7 +33,7 @@
   <button onclick="changeColor('yellow');">azul</button>
   <button onclick="changeColor('red');">red</button> <br> <br>
   <button onclick="updateDate();">Fecha</button> <br> <br>
-/*javascript*/
+	
 <script src="script.js"></script>
 </body>
 </html>
