@@ -27,12 +27,10 @@
 	
 	<button onclick="updateDate();" id="prog1">Programar</button> <br>
 	<p id="confirm1">No guardado</p><br>
-  
-	<p id="text1">Regadores</p>
-  <p id="fecha0">Date/Time:</p>
-  <button onclick="changeColor('yellow');">azul</button>
-  <button onclick="changeColor('red');">red</button> <br> <br>
-  <button onclick="updateDate();">Fecha</button> <br> <br>
+  	<p id="fecha0">Date/Time:</p>
+  	<button onclick="changeColor('yellow');">azul</button>
+  	<button onclick="changeColor('red');">red</button> <br> <br>
+  	<button onclick="updateDate();">Fecha</button> <br> <br>
 	
 <script src="script.js"></script>
 </body>
