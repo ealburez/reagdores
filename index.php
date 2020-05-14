@@ -6,7 +6,7 @@
 	<p id="text1">Regadores</p>
 
 	<?php  
-  	$numRega=3;
+  	$numRega=2;
 	
 	echo "<label>Total regadores:</label><label id='numRega'> $numRega</label><br><br>";	
 	for ($i = 1; $i <= $numRega; $i++) {
