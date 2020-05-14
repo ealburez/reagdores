@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>getElementById example</title>
+  <title>Control de regadores</title>
 </head>
 <body>
 	<p id="text1">Regadores</p>
