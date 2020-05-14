@@ -17,6 +17,7 @@
 			}
 		
   		/*Creación de los controles de los regadores*/
+		
 			echo "<label for='button_$i'>Regador $i </label><button onclick='changeColor('yellow');' id='button_$i'>'Encender 5 minutos'</button><br>";
 			echo "<label for='estado_$i'> Habilitar</label><input type='checkbox' id='estado_$i' name='estado_$i' $checa><br>";
 			echo "<label for='hora_$i'>Hora de inicio</label><input type='time' id='hora_$i' value='12:00' name='hora_$i'> <br>";
@@ -32,6 +33,7 @@
   <button onclick="changeColor('yellow');">azul</button>
   <button onclick="changeColor('red');">red</button> <br> <br>
   <button onclick="updateDate();">Fecha</button> <br> <br>
-  
+<!-- javascript-->
+<script src="script.js"></script>
 </body>
 </html>
