@@ -10,7 +10,7 @@
 	$confDir="/home/regadores.conf";
 	$confFile = fopen($confDir, "r") or die("Unable to open file!");
 	while(!feof($confFile)) {
-  		echo fgetc($confFile);
+  		echo fgets($confFile);
 		$numRega+=1;
 	}
 	fclose($confFile);
