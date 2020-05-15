@@ -28,7 +28,7 @@ function updateDate() {
         } else {
             habilita="";
         }
-
+        dt = new Date(); 
         dt.setHours(parseInt(hora[0]));
         dt.setMinutes(parseInt(hora[1]));
         dt.setTime(dt.getTime() + delta * 60000);
