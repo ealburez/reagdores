@@ -19,8 +19,8 @@ function updateDate() {
   var lista =["hora"]
   
   //poner el for aquí
-  hora = document.getElementById("hora"+i).value.split(":");
-	delta = parseInt(document.getElementById("tiempo"+i).value);
+  hora = document.getElementById("hora_"+i).value.split(":");
+	delta = parseInt(document.getElementById("tiempo_"+i).value);
 
   dt.setHours(parseInt(hora[0]));
   dt.setMinutes(parseInt(hora[1]));
@@ -39,8 +39,9 @@ function updateDate() {
   }
   
   document.getElementById("confirm1").innerHTML = "Guardado:" + currentDate.toLocaleString();
-  document.getElementById("tiempo2").innerHTML = output;
+  document.getElementById("tiempo_2").innerHTML = output;
   //document.getElementById("tiempo1").value = 10;
   //document.getElementById("hora1").value = "02:08"
   //document.getElementById("hora1").value = output
+}
 
