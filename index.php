@@ -28,7 +28,7 @@
 		
   		/*Creación de los controles de los regadores*/
 		
-			echo "<label for='estado_$i'>Regador $i </label><input type='checkbox' id='estado_$i' name='estado_$i' $input[$i][1]><br>";
+			echo "<label for='estado_$i'>Regador $i </label><input type='checkbox' id='estado_$i' name='estado_$i'".$input[$i][1]."><br>";
 			echo "<button onclick='changeColor('yellow');' id='button_$i'>'Encender 5 minutos'</button><br><br>";
 			echo "<label for='hora_$i'>Hora de inicio</label><input type='time' id='hora_$i' value='12:00' name='hora_$i'> <br>";
 			echo "<label for='tiempo_$i'>Tiempo (en minutos):</label><input type='number' id='tiempo_$i' name='tiempo_$i' value='10' min='1' max='100'><br>";
