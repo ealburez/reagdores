@@ -36,6 +36,7 @@ function updateDate() {
         delta = parseInt(document.getElementById("tiempo_"+i).value);
         if (!document.getElementById("tiempo_"+i).value){
             delta=1;
+            habilita="";
         }
         
         dt = new Date(); 
