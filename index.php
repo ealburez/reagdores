@@ -11,6 +11,7 @@
 	$confFile = fopen($confDir, "r") or die("Unable to open file!");
 	$input=array();
 	
+	//load data from file
 	while(!feof($confFile)) {
   		$input[]=explode(",",fgets($confFile));
 		$numRega+=1;
