@@ -12,7 +12,7 @@
 	$input=array();
 	
 	while(!feof($confFile)) {
-  		$input[]=preg_split(",",fgets($confFile));
+  		$input[]=explode(",",fgets($confFile));
 		$numRega+=1;
 	}
 	fclose($confFile);
