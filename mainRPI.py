@@ -42,7 +42,7 @@ with open(confFile) as csv_file:
     # guardar en crontab
     #----------------------
     
-    os.system("crontab "+ crontabFilepytho)
+    os.system("crontab "+ crontabFile)
     
     print (header + body)
             
