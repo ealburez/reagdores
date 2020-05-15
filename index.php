@@ -7,9 +7,9 @@
 
 	<?php  
   	$numRega=2;
-	$confDir="/home/regadores.conf"
+	$confDir="/home/regadores.conf";
 	$confFile = fopen($confDir, "r") or die("Unable to open file!");
-	// Output one character until end-of-file
+	
 	while(!feof($confFile)) {
   		echo fgetc($confFile);
 	}
