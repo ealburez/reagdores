@@ -29,5 +29,7 @@ with open(confFile) as csv_file:
     for row in csv_reader: 
         startHour=row[2].split(":")
         body += startHour[1] + " " +startHour[0] + " * * * " + command +"\n"
+    
+    print (header + body) 
             
     
