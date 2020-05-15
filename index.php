@@ -6,7 +6,7 @@
 	<p id="text1">Regadores</p>
 
 	<?php  
-  	$numRega=-1;
+  	$numRega=-2;
 	$confDir="/home/regadores.conf";
 	$confFile = fopen($confDir, "r") or die("Unable to open file!");
 	while(!feof($confFile)) {
