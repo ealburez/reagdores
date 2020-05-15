@@ -16,7 +16,7 @@
 		$numRega+=1;
 	}
 	fclose($confFile);
-	echo $input;
+	print_r($input);
 	echo "<label>Total regadores:</label><label id='numRega'> $numRega</label><br><br>";	
 	for ($i = 1; $i <= $numRega; $i++) {
 			if ($i%2 == 1){
