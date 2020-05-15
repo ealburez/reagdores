@@ -9,12 +9,14 @@
   	$numRega=-2;
 	$confDir="/home/regadores.conf";
 	$confFile = fopen($confDir, "r") or die("Unable to open file!");
+	$input=array();
+	
 	while(!feof($confFile)) {
-  		echo fgets($confFile);
+  		$input[]=fgets($confFile);
 		$numRega+=1;
 	}
 	fclose($confFile);
-	
+	echo $input;
 	echo "<label>Total regadores:</label><label id='numRega'> $numRega</label><br><br>";	
 	for ($i = 1; $i <= $numRega; $i++) {
 			if ($i%2 == 1){
