@@ -26,9 +26,10 @@ with open(confFile) as csv_file:
         #-------------------
         # construct crontab
         #-------------------
-        if row[1]==1:
+        if row[1]=="1":
             startHour=row[2].split(":")
-            body += startHour[1] + " " +startHour[0] + " * * * " + command + " "+row[0]+"\n"
-    print (header + body) 
+            body += startHour[1] + " " +startHour[0] + " * * * " + command + " "+row[0] +" "+ row[4] +"\n"
+        
+        print (header + body) 
             
     
