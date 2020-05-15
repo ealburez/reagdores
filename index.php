@@ -3,7 +3,7 @@
   <title>Control de regadores</title>
 </head>
 <body>
-	<p id="text1">Regadores</p>
+	<p id="text1">Regadores Albu</p>
 
 	<?php  
   	$numRega=-2;
