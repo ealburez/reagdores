@@ -18,6 +18,7 @@ with open(confFile) as csv_file:
         for x in range (2,4): # check the start and stop time
             if not row[x].replace(":","").isdigit():
                 row[x]="00:00"
+                row[1]=""       #deactivate the sprinkler
                 
         if not row[4].isdigit(): # check duration
             row[4]="1"
@@ -25,9 +26,9 @@ with open(confFile) as csv_file:
         #-------------------
         # construct crontab
         #-------------------
-    
-        startHour=row[2].split(":")
-        body += startHour[1] + " " +startHour[0] + " * * * " + command +"\n"
-        print (body) 
+        if row[1]==1:
+            startHour=row[2].split(":")
+            body += startHour[1] + " " +startHour[0] + " * * * " + command + " "+row[0]+"\n"
+    print (header + body) 
             
     
