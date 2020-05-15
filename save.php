@@ -6,6 +6,7 @@ if (isset ($_GET["pic"])){
 
 }
 if((isset ($_GET["water"]))){
-    system("touch algo2.txt");
+    $water= strip_tags ($_GET["water"]);
+    system("echo '".$water."' > algo2.txt");
 }
 ?>

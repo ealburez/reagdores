@@ -10,6 +10,7 @@
 	$confDir="regadores.conf";
 	$confFile = fopen($confDir, "r") or die("Unable to open file!");
 	$input=array();
+    $color="yellow";
 	
 	//load data from file
 	while(!feof($confFile)) {
@@ -32,12 +33,17 @@
         }
   		/*Creación de los controles de los regadores*/
 		
+        //checkbox Habilita
         echo "<label for='estado_$i'>Regador $i </label><input type='checkbox' id='estado_$i' name='estado_$i'$checa>";
+        //checkbox Cada dos días
+        echo "<label for='freq_$i'>Diario: </label><input type='checkbox' id='freq_$i' name='estado_$i' $checa>";
         
-        echo "<button onclick='changeColor('yellow');' id='button_$i'>'Encender 5 minutos'</button><br>";
+        //Regar ahora
+        echo "<button onclick='regarNow($i);' id='button_$i'>Encender 5 minutos</button><br>";
 		
+        //Hora inicio
         echo "<label for='hora_$i'>Hora de inicio</label><input type='time' id='hora_$i' value=".$input[$i][2]." name='hora_$i'> <br>";
-			
+		//Duración	
         echo "<label for='tiempo_$i'>Tiempo (en minutos):</label><input type='number' id='tiempo_$i' name='tiempo_$i' value=".$input[$i][4]." min='1' max='100'><br><br>";
 	}
 	?>

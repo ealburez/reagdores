@@ -17,17 +17,27 @@ function updateDate() {
     var i;
     var stopTime;
     var output="";
-    var lista =["hora"];
   
   //poner el for aquí
     for (i=0;i<numRega;i++){
-        hora = document.getElementById("hora_"+i).value.split(":");
-        delta = parseInt(document.getElementById("tiempo_"+i).value);
+        
         if(document.getElementById("estado_"+i).checked){
             habilita=1;
         } else {
             habilita="";
         }
+        
+        hora = document.getElementById("hora_"+i).value.split(":");
+        if (!document.getElementById("hora_"+i).value){
+            hora=["12","00"];
+            habilita="";
+        }
+            
+        delta = parseInt(document.getElementById("tiempo_"+i).value);
+        if (!document.getElementById("tiempo_"+i).value){
+            delta=1;
+        }
+        
         dt = new Date(); 
         dt.setHours(parseInt(hora[0]));
         dt.setMinutes(parseInt(hora[1]));
@@ -51,9 +61,13 @@ function updateDate() {
     }
      testP(output);
     
-  document.getElementById("confirm1").innerHTML = "Guardado:" + currentDate.toLocaleString();
-  document.getElementById("tiempo_2").innerHTML = output;
-  //document.getElementById("tiempo1").value = 10;
+    document.getElementById("confirm1").innerHTML = "Guardado:" + currentDate.toLocaleString();
+    document.getElementById("tiempo_2").innerHTML = output;
+    alert('Configuración guardada =)');
+    //Reload  the webpage to see the results
+    location.reload();
+    
+   //document.getElementById("tiempo1").value = 10;
   //document.getElementById("hora1").value = "02:08"
   //document.getElementById("hora1").value = output
 }
@@ -61,6 +75,13 @@ function updateDate() {
 function testP(texto){
     var request = new XMLHttpRequest()
     request.open("GET","save.php?pic="+texto,true);
+    request.send(null);
+    return 0;
+}
+
+function regarNow(minutos){
+    var request = new XMLHttpRequest()
+    request.open("GET","save.php?water="+minutos,true);
     request.send(null);
     return 0;
 }
