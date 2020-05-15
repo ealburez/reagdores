@@ -1,12 +1,13 @@
 #!/usr/bin/python
 
 import csv
-
+import os
 dirFiles="/var/www/html/"
 
 
 confFile=dirFiles + "regadores.conf"
-command = dirFiles + "water.py" 
+crontabFile = dirFiles + "schedule.crontab"
+commandFile = dirFiles + "water.py" 
 
 header = "# m h  dom mon dow   command\nPATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games\n"
 body="" 
@@ -24,12 +25,25 @@ with open(confFile) as csv_file:
             row[4]="1"
         print(row)
         #-------------------
-        # construct crontab
+        # construct crontab body
         #-------------------
         if row[1]=="1":
             startHour=row[2].split(":")
-            body += startHour[1] + " " +startHour[0] + " * * * " + command + " "+row[0] +" "+ row[4] +"\n"
+            body += startHour[1] + " " +startHour[0] + " * * * " + commandFile + " "+row[0] +" "+ row[4] +"\n"
         
-        print (header + body) 
+    #----------------------
+    # generar archivo
+    #----------------------
+    archivo= open(crontabFile,"w+")
+    archivo.write(header + body)
+    archivo.close
+    
+    #----------------------
+    # guardar en crontab
+    #----------------------
+    
+    os.system("crontab "+ crontabFilepytho)
+    
+    print (header + body)
             
     
