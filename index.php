@@ -11,7 +11,7 @@
 	$confFile = fopen($confDir, "r") or die("Unable to open file!");
 	while(!feof($confFile)) {
   		echo fgetc($confFile);
-		numRega+=1;
+		$numRega+=1;
 	}
 	fclose($confFile);
 	
