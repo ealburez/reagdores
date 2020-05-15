@@ -7,6 +7,13 @@
 
 	<?php  
   	$numRega=2;
+	$confDir="/home/regadores.conf"
+	$confFile = fopen($confDir, "r") or die("Unable to open file!");
+	// Output one character until end-of-file
+	while(!feof($confFile)) {
+  		echo fgetc($confFile);
+	}
+	fclose($confFile);
 	
 	echo "<label>Total regadores:</label><label id='numRega'> $numRega</label><br><br>";	
 	for ($i = 1; $i <= $numRega; $i++) {
