@@ -1,43 +1,56 @@
 function changeColor(newColor) {
-  var elem = document.getElementById('text1');
-  elem.style.color = newColor;
+    var elem = document.getElementById('text1');
+    elem.style.color = newColor;
 }
 
 function updateDate() {
   changeColor('black');
   //----Variables de html
-  var numRega =  parseInt(document.getElementById("numRega").textContent)
-  var delta;		//dieferencia de tiempo que debe ser
-  var hora; 		//hora de inicio del riego
-  
-  // Otras variables
-  var dt = new Date();
-  var currentDate = new Date();
-  var i = 1;
-  var stopTime;
-  var output;  
-  var lista =["hora"]
+    var numRega =  parseInt(document.getElementById("numRega").textContent)
+    var delta;		//dieferencia de tiempo que debe ser
+    var hora; 		//hora de inicio del riego
+    var habilita;
+
+    // Otras variables
+    var dt = new Date();
+    var currentDate = new Date();
+    var i;
+    var stopTime;
+    var output="";
+    var lista =["hora"];
   
   //poner el for aquí
-  hora = document.getElementById("hora_"+i).value.split(":");
-	delta = parseInt(document.getElementById("tiempo_"+i).value);
+    for (i=0;i<numRega;i++){
+        hora = document.getElementById("hora_"+i).value.split(":");
+        delta = parseInt(document.getElementById("tiempo_"+i).value);
+        if(document.getElementById("estado_"+i).checked){
+            habilita=1;
+        } else {
+            habilita="";
+        }
 
-  dt.setHours(parseInt(hora[0]));
-  dt.setMinutes(parseInt(hora[1]));
-  dt.setTime(dt.getTime() + delta * 60000);
-  stopTime = [dt.getHours(), dt.getMinutes()]
+        dt.setHours(parseInt(hora[0]));
+        dt.setMinutes(parseInt(hora[1]));
+        dt.setTime(dt.getTime() + delta * 60000);
+        stopTime = [dt.getHours(), dt.getMinutes()];
 
-  if (stopTime[0] < 10) {
-    output = "0" + stopTime[0] + ":"
-  } else {
-    output = stopTime[0] + ":"
-  }
-  if (stopTime[1] < 10) {
-    output += "0" + stopTime[1]
-  } else {
-    output += stopTime[1]
-  }
-  
+        output += i+","+habilita+","+hora[0]+":"+hora[1]+",";
+        
+        if (stopTime[0] < 10) {
+            output += "0" + stopTime[0] + ":";
+        } else {
+            output += stopTime[0] + ":";
+        }
+        if (stopTime[1] < 10) {
+            output += "0" + stopTime[1];
+        } else {
+            output += stopTime[1];
+        }
+
+        output+=","+delta+"\\n";
+    }
+     testP(output);
+    
   document.getElementById("confirm1").innerHTML = "Guardado:" + currentDate.toLocaleString();
   document.getElementById("tiempo_2").innerHTML = output;
   //document.getElementById("tiempo1").value = 10;
@@ -45,3 +58,9 @@ function updateDate() {
   //document.getElementById("hora1").value = output
 }
 
+function testP(texto){
+    var request = new XMLHttpRequest()
+    request.open("GET","save.php?pic="+texto,true);
+    request.send(null);
+    return 0;
+}
