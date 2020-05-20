@@ -45,7 +45,7 @@ with open(confFile) as csv_file:
             job.append(my_cron.new(command=comando + " " + row[0] + " " + row[4] , comment = row[0]))
             body = startHour[1] + " " +startHour[0] + " * * *"
             job[i].setall(body)
-            i += 1       #incrementar el contador si se agregó un job
+            i += 1       #incrementar el contador si se agrego un job
         
     #----------------------
     # guardar en crontab
