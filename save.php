@@ -2,6 +2,7 @@
 if (isset ($_GET["pic"])){
     $pic= strip_tags ($_GET["pic"]);
     system("printf '".$pic."'>regadores.conf");
+    system("python mainRPI.py");
 
 
 }
