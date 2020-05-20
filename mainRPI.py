@@ -19,7 +19,7 @@ comando = "python "+commandFile
 my_cron = CronTab(user=usuario)
 my_cron.remove_all()
 job=[]
-i=0
+i = 0
 
 #header = "# m h  dom mon dow   command\nPATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games\n"
 #body=""
@@ -43,23 +43,15 @@ with open(confFile) as csv_file:
         if row[1]=="1": #checks if  the sprinkler is enabled
             startHour=row[2].split(":")
             job.append(my_cron.new(command=comando + " " + row[0] + " " + row[4] , comment = row[0]))
-            body = startHour[1] + " " +startHour[0] + " * * * "
+            body = startHour[1] + " " +startHour[0] + " * * *"
             job[i].setall(body)
-            i+=1        #incrementar el contador si se agregó un job
+            i += 1       #incrementar el contador si se agregó un job
         
-    #----------------------
-    # generar archivo
-    #----------------------
-    #archivo= open(crontabFile,"w+")
-    #archivo.write(header + body)
-    #archivo.close
-    
     #----------------------
     # guardar en crontab
     #----------------------
     
     my_cron.write()
     
-    print (header + body)
             
     
