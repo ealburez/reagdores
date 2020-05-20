@@ -2,15 +2,28 @@
 
 import csv
 import os
+from crontab import CronTab
+
+
+#system varaibles
+usuario="ealburez"
+
+#directory variables
 dirFiles="/var/www/html/"
-
-
 confFile=dirFiles + "regadores.conf"
 crontabFile = dirFiles + "schedule.crontab"
-commandFile = dirFiles + "water.py" 
+commandFile = dirFiles + "water.py"
+comando = "python "+commandFile 
 
-header = "# m h  dom mon dow   command\nPATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games\n"
-body="" 
+#Initialize Crontab
+my_cron = CronTab(user=usuario)
+my_cron.remove_all()
+job=[]
+i=0
+
+#header = "# m h  dom mon dow   command\nPATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games\n"
+#body=""
+
 with open(confFile) as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     
@@ -27,22 +40,25 @@ with open(confFile) as csv_file:
         #-------------------
         # construct crontab body
         #-------------------
-        if row[1]=="1":
+        if row[1]=="1": #checks if  the sprinkler is enabled
             startHour=row[2].split(":")
-            body += startHour[1] + " " +startHour[0] + " * * * " + commandFile + " "+row[0] +" "+ row[4] +"\n"
+            job.append(my_cron.new(command=comando + " " + row[0] + " " + row[4] , comment = row[0]))
+            body = startHour[1] + " " +startHour[0] + " * * * "
+            job[i].setall(body)
+            i+=1        #incrementar el contador si se agregó un job
         
     #----------------------
     # generar archivo
     #----------------------
-    archivo= open(crontabFile,"w+")
-    archivo.write(header + body)
-    archivo.close
+    #archivo= open(crontabFile,"w+")
+    #archivo.write(header + body)
+    #archivo.close
     
     #----------------------
     # guardar en crontab
     #----------------------
     
-    os.system("crontab "+ crontabFile)
+    my_cron.write()
     
     print (header + body)
             
