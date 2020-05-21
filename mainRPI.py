@@ -1,12 +1,11 @@
 #!/usr/bin/python
 
 import csv
-import os
 from crontab import CronTab
 
 
 #system varaibles
-usuario="ealburez"
+usuario="www-data"
 
 #directory variables
 dirFiles="/var/www/html/"
