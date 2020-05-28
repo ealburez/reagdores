@@ -18,5 +18,5 @@ input[type=checkbox]
   -webkit-transform: scale(1.5); /* Safari and Chrome */
   -o-transform: scale(1.5); /* Opera */
   transform: scale(1.5);
-  padding: 16px;
+  padding: 17px;
 }
