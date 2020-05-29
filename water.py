@@ -32,9 +32,9 @@ GPIO.setmode(GPIO.BOARD)
 
 #---Apagar todos los regadores---
 for i in range(len(outPin)):
-	GPIO.setup(i,GPIO.OUT)	#Define as output
-	GPIO.output(i, GPIO.LOW) #Turn off
-	print "apaga" , i
+	GPIO.setup(outPin[i],GPIO.OUT)	#Define as output
+	GPIO.output(outPin[i], GPIO.LOW) #Turn off
+	print "apaga" , outPin[i]
 
 #---Prender los regadores en secuencia
 
@@ -44,5 +44,6 @@ if len(sys.argv)==2:
 
 #---Prender un regador
 elif len(sys.argv)==4:
-	setRegador(argv[3],sleepTime)
+	pin=outPin[argv[3]]
+	setRegador(pin,sleepTime)
 	#logica para programar un regador
