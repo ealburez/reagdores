@@ -7,7 +7,7 @@ import sys, time
 #	varaibles
 #------------------------------
 
-outPin = [2,3,4]
+outPin = [11,15,17]
 try:
 	sleepTime = argv[1]*60
 except:
@@ -17,7 +17,7 @@ except:
 #	Funciones
 #------------------------------
 
-def setRegador (idTag,waitTime)
+def setRegador (idTag,waitTime):
 	print "encendiendo",idTag, waitTime
 	GPIO.output(idTag, GPIO.HIGH) #Turn on
 	time.sleep(waitTime)	#wait until shutting sprinkler off
