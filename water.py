@@ -58,7 +58,6 @@ writeLog("----apagando todos----")
 for i in range(len(outPin)):
 	GPIO.setup(outPin[i],GPIO.OUT)	#Define as output
 	GPIO.output(outPin[i], GPIO.LOW) #Turn off
-	
 
 #---Prender los regadores en secuencia
 
