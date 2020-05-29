@@ -54,7 +54,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 #---Apagar todos los regadores---
-writeLog("----apagando todos----")
+writeLog("----apagando todos----",len (sys.argv))
 for i in range(len(outPin)):
 	GPIO.setup(outPin[i],GPIO.OUT)	#Define as output
 	GPIO.output(outPin[i], GPIO.LOW) #Turn off
