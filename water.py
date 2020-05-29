@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import RPi.GPIO as GPIO
-import sys, time
+import sys, time, datetime
 
 """
 can be called with the following argmunets
@@ -23,17 +23,28 @@ try:
 except:
 	sleepTime = 0
 
+f = open("riego.log", "a")
+
+
 #------------------------------
 #	Funciones
 #------------------------------
 
 def setRegador (idTag,waitTime):
-	print "encendiendo",idTag, waitTime
+	writeLog("encendiendo",idTag, waitTime)
 	GPIO.output(idTag, GPIO.HIGH) #Turn on
 	time.sleep(waitTime)	#wait until shutting sprinkler off
 	GPIO.output(idTag, GPIO.LOW) #Turn off
-
-
+	writeLog("apagando",idTag)
+"""
+log event
+"""
+def writeLog(*kwargs):
+	logOut=str(datetime.datetime.now()) + " "
+	for arg in kwargs:
+		logOut += str(arg) + " "
+	logOut += "\n"
+	f.write(logOut)
 
 #------------------------------
 #	Program
@@ -42,10 +53,11 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 #---Apagar todos los regadores---
+writeLog("apagando todos")
 for i in range(len(outPin)):
 	GPIO.setup(outPin[i],GPIO.OUT)	#Define as output
 	GPIO.output(outPin[i], GPIO.LOW) #Turn off
-	print "apaga" , outPin[i]
+	
 
 #---Prender los regadores en secuencia
 
@@ -58,3 +70,5 @@ elif len(sys.argv)==3:
 	pin=outPin[int(sys.argv[2])]
 	setRegador(pin,sleepTime)
 	#logica para programar un regador
+
+f.close()
