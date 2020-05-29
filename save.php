@@ -8,6 +8,6 @@ if (isset ($_GET["pic"])){
 }
 if((isset ($_GET["water"]))){
     $water= strip_tags ($_GET["water"]);
-    system("echo '".$water."' > algo2.txt");
+    system("python water.py 0.5 '".$water."' > algo2.txt");
 }
 ?>
