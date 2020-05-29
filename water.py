@@ -22,7 +22,7 @@ try:
 	sleepTime = float(sys.argv[1])*60
 except:
 	sleepTime = 0
-logFile = "/var/www/hml/riego.log"
+logFile = "/var/www/html/riego.log"
 
 
 #------------------------------
