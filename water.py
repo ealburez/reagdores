@@ -22,8 +22,7 @@ try:
 	sleepTime = float(sys.argv[1])*60
 except:
 	sleepTime = 0
-
-f = open("riego.log", "a")
+logFile = "/var/www/hml/riego.log"
 
 
 #------------------------------
@@ -40,11 +39,13 @@ def setRegador (idTag,waitTime):
 log event
 """
 def writeLog(*kwargs):
+	f = open(logFile, "a")
 	logOut=str(datetime.datetime.now().strftime("%x %X")) + " "
 	for arg in kwargs:
 		logOut += str(arg) + " "
 	logOut += "\n"
 	f.write(logOut)
+	f.close()
 
 #------------------------------
 #	Program
@@ -71,4 +72,3 @@ elif len(sys.argv)==3:
 	setRegador(pin,sleepTime)
 	#logica para programar un regador
 
-f.close()
