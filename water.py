@@ -7,11 +7,11 @@ import sys, time
 #	varaibles
 #------------------------------
 
-outPin = [11,15,17]
+outPin = [11,13,15]
 try:
-	sleepTime = argv[1]*60
+	sleepTime = int(sys.argv[1])*60
 except:
-	pass
+	sleepTime = 0
 
 #------------------------------
 #	Funciones
@@ -21,7 +21,7 @@ def setRegador (idTag,waitTime):
 	print "encendiendo",idTag, waitTime
 	GPIO.output(idTag, GPIO.HIGH) #Turn on
 	time.sleep(waitTime)	#wait until shutting sprinkler off
-	GPIO.output(led, GPIO.LOW) #Turn off
+	GPIO.output(idTag, GPIO.LOW) #Turn off
 
 
 
@@ -29,6 +29,7 @@ def setRegador (idTag,waitTime):
 #	Program
 #------------------------------
 GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
 
 #---Apagar todos los regadores---
 for i in range(len(outPin)):
@@ -44,6 +45,6 @@ if len(sys.argv)==2:
 
 #---Prender un regador
 elif len(sys.argv)==4:
-	pin=outPin[argv[3]]
+	pin=outPin[sys.argv[3]]
 	setRegador(pin,sleepTime)
 	#logica para programar un regador
