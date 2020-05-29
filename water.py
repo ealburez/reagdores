@@ -3,13 +3,23 @@
 import RPi.GPIO as GPIO
 import sys, time
 
+"""
+can be called with the following argmunets
+
+water.py ---> turns off all the sprinkler
+water.py time(minutes) ---> turns all sprinklers on in sequence for the defined amount of time
+water.py time(minutes) sprinklerID ---> turns the defined sprinkler for the defined time
+
+"""
+
+
 #------------------------------
 #	varaibles
 #------------------------------
 
 outPin = [11,13,15]
 try:
-	sleepTime = int(sys.argv[1])*60
+	sleepTime = float(sys.argv[1])*60
 except:
 	sleepTime = 0
 
@@ -43,8 +53,8 @@ if len(sys.argv)==2:
 	for i in range(len(outPin)):
 		setRegador(outPin[i],sleepTime)
 
-#---Prender un regador
-elif len(sys.argv)==4:
-	pin=outPin[sys.argv[3]]
+#---Prender un regador si es llamado con 2 parametros
+elif len(sys.argv)==3:
+	pin=outPin[int(sys.argv[2])]
 	setRegador(pin,sleepTime)
 	#logica para programar un regador
