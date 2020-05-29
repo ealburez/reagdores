@@ -40,7 +40,7 @@ def setRegador (idTag,waitTime):
 log event
 """
 def writeLog(*kwargs):
-	logOut=str(datetime.datetime.now()) + " "
+	logOut=str(datetime.datetime.now().strftime("%x %X")) + " "
 	for arg in kwargs:
 		logOut += str(arg) + " "
 	logOut += "\n"
