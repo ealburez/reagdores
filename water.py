@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import RPi.GPIO as GPIO
-import sys, time, datetime
+import sys, time, datetime,getpass
 
 """
 can be called with the following argmunets
@@ -17,7 +17,7 @@ water.py time(minutes) sprinklerID ---> turns the defined sprinkler for the defi
 #	varaibles
 #------------------------------
 
-outPin = [11,13,15]
+outPin = [11,13,15] #Pins based onboard layout
 try:
 	sleepTime = float(sys.argv[1])*60
 except:
@@ -54,7 +54,7 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 #---Apagar todos los regadores---
-writeLog("----apagando todos----",len (sys.argv))
+writeLog("----apagando todos----",len (sys.argv), getpass.getuser())
 for i in range(len(outPin)):
 	GPIO.setup(outPin[i],GPIO.OUT)	#Define as output
 	GPIO.output(outPin[i], GPIO.LOW) #Turn off
