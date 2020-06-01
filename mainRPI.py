@@ -38,10 +38,12 @@ with open(confFile) as csv_file:
         print(row)
         #-------------------
         # construct crontab body
+        # construccion de regadores.conf
+        # #regador, activo, hora de inicio, hora fin, tiempo activado (min)
         #-------------------
         if row[1]=="1": #checks if  the sprinkler is enabled
             startHour=row[2].split(":")
-            job.append(my_cron.new(command=comando + " " + row[0] + " " + row[4] , comment = row[0]))
+            job.append(my_cron.new(command=comando + " " + row[4] + " " + row[0] , comment = row[0]))
             body = startHour[1] + " " +startHour[0] + " * * *"
             job[i].setall(body)
             i += 1       #incrementar el contador si se agrego un job
