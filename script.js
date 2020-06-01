@@ -89,7 +89,7 @@ function regarNow(minutos){
 
 function testAll(minutos){
     var request = new XMLHttpRequest()
-    request.open("GET","save.php?time="+minutos,true);
+    request.open("GET","save.php?tiempoTodos="+minutos,true);
     request.send(null);
     return 0;
 }
