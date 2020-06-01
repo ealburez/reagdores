@@ -12,7 +12,7 @@ if((isset ($_GET["water"]))){
 }
 
 if((isset ($_GET["tiempoTodos"]))){
-    $water= strip_tags ($_GET["tiempoTodos"]);
+    $tiempoTodos= strip_tags ($_GET["tiempoTodos"]);
     system("python water.py ".$tiempoTodos);
 }
 ?>
