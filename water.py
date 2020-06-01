@@ -62,6 +62,11 @@ for i in range(len(outPin)):
 #---Prender los regadores en secuencia
 
 if len(sys.argv)==2:
+	#Si el tiempo está en cero no salir del programa
+	if sleepTime==0:
+		writeLog("---shut off command---")
+		sys.exit(0)
+	#Si hay tiempo prender por el tiempo especificado
 	for i in range(len(outPin)):
 		setRegador(outPin[i],sleepTime)
 
