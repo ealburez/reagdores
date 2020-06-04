@@ -70,6 +70,6 @@
   	<button onclick="testP('desdeAquí');">Fecha</button> <br> <br>
   	-->
 	
-<script src="script.js"></script> <!--// referencia al script-->
+<script src="script.js"></script> <!--// referencia al  script-->
 </body>
 </html>
