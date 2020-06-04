@@ -82,7 +82,7 @@ function testP(texto){
 
 function regarNow(regadorID){
     var request = new XMLHttpRequest()
-    request.open("GET","save.php?water="+regadorID,true);
+    request.open("GET","save.php?water="+regadorID+"&tiempo=0.5",true);
     request.send(null);
     return 0;
 }

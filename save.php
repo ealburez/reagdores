@@ -8,7 +8,8 @@ if (isset ($_GET["pic"])){
 }
 if((isset ($_GET["water"]))){
     $water= strip_tags ($_GET["water"]);
-    system("python water.py 0.5 ".$water);
+    $tiempo= strip_tags ($_GET["tiempo"]);
+    system("python water.py ".$tiempo." ".$water);
 }
 
 if((isset ($_GET["tiempoTodos"]))){
