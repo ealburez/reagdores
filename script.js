@@ -80,16 +80,25 @@ function testP(texto){
     return 0;
 }
 
-function regarNow(regadorID){
+function regarNow(regadorID,timeSet){
     var request = new XMLHttpRequest()
-    request.open("GET","save.php?water="+regadorID+"&tiempo=0.5",true);
+    request.open("GET","save.php?water="+regadorID+"&tiempo="+timeSet,true);
+    request.send(null);
+    return 0;
+}
+//enciende todos los regadores uno detrás del otro
+function testAll(){
+    var request = new XMLHttpRequest()
+    minutos=document.getElementById("tiempoAll").value;
+    request.open("GET","save.php?tiempoTodos="+minutos,true);
     request.send(null);
     return 0;
 }
 
-function testAll(minutos){
+//apaga todo los regadores enviando el parametro tiempo=0
+function offAll(){
     var request = new XMLHttpRequest()
-    request.open("GET","save.php?tiempoTodos="+minutos,true);
+    request.open("GET","save.php?tiempoTodos=0",true);
     request.send(null);
     return 0;
 }
