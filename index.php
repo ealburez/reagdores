@@ -49,21 +49,22 @@
         echo "<label for='tiempo_$i'>Tiempo (en minutos):</label><input type='number' id='tiempo_$i' name='tiempo_$i' value=".$input[$i][4]." min='1' max='100'><br><br>";
 	}
 	?>
-	//Programar la configuracion en RPI
+	<!--Programar la configuracion en RPI-->
 	<button onclick="updateDate();" id="prog1">Programar</button> <br>
-	//Lable con estado de guardado
+	<!--//Lable con estado de guardado -->
 	<p id="confirm1">No guardado</p><br>
   	<p id="fecha0">Date/Time:</p>
-  	// Boton para prender todos en secuencia
+  	 <!-- // Boton para prender todos en secuencia-->
   	<button onclick="testAll();" id="prog2">Prender en secuencia</button> <br>
 
   	<label for='tiempoAll'>Tiempo (en minutos):</label>
   	<input type='number' id='tiempoAll' name='tiempoAll' value="5" min='1' max='100'><br><br>
 
-  	// Boton para parar todo
+  	<!-- // Boton para parar todo -->
   	<button onclick="offAll();" id="prog3">Parar todos</button> <br>
-	//Botones para futuras referencias
+	
   	<!--
+  	//Botones para futuras referencias
   	<button onclick="changeColor('yellow');">azul</button>
   	<button onclick="changeColor('red');">red</button> <br> <br>
   	<button onclick="testP('desdeAquí');">Fecha</button> <br> <br>
