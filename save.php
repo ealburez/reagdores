@@ -10,4 +10,9 @@ if((isset ($_GET["water"]))){
     $water= strip_tags ($_GET["water"]);
     system("python water.py 0.5 ".$water);
 }
+
+if((isset ($_GET["tiempoTodos"]))){
+    $tiempoTodos= strip_tags ($_GET["tiempoTodos"]);
+    system("python water.py ".$tiempoTodos);
+}
 ?>

@@ -51,6 +51,9 @@
 	<button onclick="updateDate();" id="prog1">Programar</button> <br>
 	<p id="confirm1">No guardado</p><br>
   	<p id="fecha0">Date/Time:</p>
+  	<button onclick="testAll(5);" id="prog2">Prender en secuencia</button> <br>
+  	<button onclick="testAll(0);" id="prog3">Parar todos</button> <br>
+
   	<button onclick="changeColor('yellow');">azul</button>
   	<button onclick="changeColor('red');">red</button> <br> <br>
   	<button onclick="testP('desdeAquí');">Fecha</button> <br> <br>

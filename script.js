@@ -80,9 +80,16 @@ function testP(texto){
     return 0;
 }
 
-function regarNow(minutos){
+function regarNow(regadorID){
     var request = new XMLHttpRequest()
-    request.open("GET","save.php?water="+minutos,true);
+    request.open("GET","save.php?water="+regadorID,true);
+    request.send(null);
+    return 0;
+}
+
+function testAll(minutos){
+    var request = new XMLHttpRequest()
+    request.open("GET","save.php?tiempoTodos="+minutos,true);
     request.send(null);
     return 0;
 }
