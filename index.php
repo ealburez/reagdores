@@ -35,25 +35,36 @@
         }
   		/*Creación de los controles de los regadores*/
 		
+       	//Crear nuevo espacio
+  		echo "<div class='box_$i'> Regador $i"
+
         //checkbox Habilita
-        echo "<label for='estado_$i'>Regador $i </label><input type='checkbox' id='estado_$i' name='estado_$i'$checa>";
+        echo "<br> <label for='estado_$i'>Regador $i </label> <input type='checkbox' id='estado_$i' name='estado_$i'$checa>";
         //checkbox Cada dos días
         echo "<label for='freq_$i'>Diario: </label><input type='checkbox' id='freq_$i' name='estado_$i' $checa>";
-        
-        //Regar ahora
-        echo "<button onclick='regarNow($i,5);' id='button_$i'>Encender 5 minutos</button><br>";
-		
+ 		
         //Hora inicio
         echo "<label for='hora_$i'>Hora de inicio</label><input type='time' id='hora_$i' value=".$input[$i][2]." name='hora_$i'> <br>";
 		//Duración	
         echo "<label for='tiempo_$i'>Tiempo (en minutos):</label><input type='number' id='tiempo_$i' name='tiempo_$i' value=".$input[$i][4]." min='1' max='100'><br><br>";
+        echo "</div>"
 	}
 	?>
 	<!--Programar la configuracion en RPI-->
 	<button onclick="updateDate();" id="prog1">Programar</button> <br>
 	<!--//Lable con estado de guardado -->
 	<p id="confirm1">No guardado</p><br>
-  	<p id="fecha0">Date/Time:</p>
+	
+	<div class="box_a">
+	<?php
+	for ($i = 0; $i < $numRega; $i++) {
+	//Regar ahora
+        echo "<button onclick='regarNow($i,5);' id='button_$i'>Encender ahora</button><br>";
+    }
+    ?>
+    </div>
+
+	<div class="box_b">
   	 <!-- // Boton para prender todos en secuencia-->
   	<button onclick="testAll();" id="prog2">Prender en secuencia</button> <br>
 
@@ -61,7 +72,8 @@
   	<input type='number' id='tiempoAll' name='tiempoAll' value="5" min='1' max='100'><br><br>
 
   	<!-- // Boton para parar todo -->
-  	<button onclick="offAll();" id="prog3">Parar todos</button> <br>
+  	<button onclick="offAll();" id="prog3">Parar todos</button> 
+  	</div>
 	
   	<!--
   	//Botones para futuras referencias
