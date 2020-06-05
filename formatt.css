@@ -1,3 +1,7 @@
+body {
+  background-color: green;
+}
+
 label{
     display: inline-block;
     float: left;
@@ -19,4 +23,18 @@ input[type=checkbox]
   -o-transform: scale(1.5); /* Opera */
   transform: scale(1.5);
   padding: 17px;
+}
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  row-gap: 1em;
+  border: 2px solid orange;
+  border-radius: 5px;
+  background-color: #fff4e6;
+}
+
+.box_a {
+  grid-column-start: 1; 
+  grid-column-end: 4; 
 }
