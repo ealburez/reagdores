@@ -28,7 +28,7 @@
   	
       
       //Encabezado
-      //echo "<br><label>Total regadores:</label><label id='numRega'> $numRega</label><br><br>";	
+      echo "<div class= 'box'><label>Total regadores:</label><label id='numRega'> $numRega</label></div>";	
   	//Loop para crear los elementos
   	for ($i = 0; $i < $numRega; $i++) {
   			
@@ -39,7 +39,7 @@
     		/*Creación de los controles de los regadores*/
   		
          	//Crear nuevo espacio
-    		echo "<div class='box_$i'> Regador $i";
+    		echo "<div class='box_$i'>";
 
           //checkbox Habilita
           echo "<br> <label for='estado_$i'>Regador $i </label> <input type='checkbox' id='estado_$i' name='estado_$i'$checa>";
@@ -49,7 +49,10 @@
           //Hora inicio
           echo "<label for='hora_$i'>Hora de inicio</label><input type='time' id='hora_$i' value=".$input[$i][2]." name='hora_$i'> <br>";
   		//Duración	
-          echo "<label for='tiempo_$i'>Tiempo (en minutos):</label><input type='number' id='tiempo_$i' name='tiempo_$i' value=".$input[$i][4]." min='1' max='100'><br><br>";
+          echo "<label for='tiempo_$i'>Tiempo (en minutos):</label> <input class='inputMin' type='number' id='tiempo_$i' name='tiempo_$i' value=".$input[$i][4]." min='1' max='100'><br><br>";
+
+          //Regar ahora
+          echo "<button onclick='regarNow($i,5);' id='button_$i'>Encender ahora</button><br>";
           echo "</div>";
   	}
   	?>
@@ -63,8 +66,7 @@
   	<div class="box_b">
   	<?php
   	for ($i = 0; $i < $numRega; $i++) {
-  	//Regar ahora
-          echo "<button onclick='regarNow($i,5);' id='button_$i'>Encender ahora</button><br>";
+  	
       }
       ?>
       </div>

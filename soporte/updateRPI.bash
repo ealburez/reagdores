@@ -16,7 +16,7 @@ git -C $repositoryDir pull
 
 #move all pages to it position
 find $repositoryDir -maxdepth 1 -type f -exec cp {} $wwwDir \;
-
+sudo chmod ug+x /home/repo/regadores/soporte/updateRPI.bash
 
 #Update Crontab
 #crontab buCrontab
