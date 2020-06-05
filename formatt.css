@@ -37,9 +37,13 @@ input[type=checkbox]
   grid-column-start: 1; 
   grid-column-end: 4; 
 }
-.box_a {
+.box_a, .box_b{
+  display: flex;
+  grid-template-rows: 1fr;
   grid-column-start: 1; 
   grid-column-end: 4; 
+  justify-content: center;
+  align-content: center;
 }
 
 .inputMin{

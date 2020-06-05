@@ -58,29 +58,21 @@
   	?>
   	<!--Programar la configuracion en RPI-->
     <div class="box_a">
-    <button onclick="updateDate();" id="prog1">Programar</button> <br>
-  	<!--//Lable con estado de guardado -->
-  	<p id="confirm1">No guardado</p><br>
+      <button onclick="updateDate();" id="prog1">Programar</button> <br>
+    	<!--//Lable con estado de guardado -->
+    	<p id="confirm1">No guardado</p><br>
   	</div>
 
   	<div class="box_b">
-  	<?php
-  	for ($i = 0; $i < $numRega; $i++) {
-  	
-      }
-      ?>
-      </div>
-
-  	<div class="box_c">
     	 <!-- // Boton para prender todos en secuencia-->
     	<button onclick="testAll();" id="prog2">Prender en secuencia</button> <br>
-
+      <!-- // Boton para parar todo -->
+      <button onclick="offAll();" id="prog3">Parar todos</button> <br>
     	<label for='tiempoAll'>Tiempo (en minutos):</label>
-    	<input type='number' id='tiempoAll' name='tiempoAll' value="5" min='1' max='100'><br><br>
+    	<input class='inputMin' type='number' id='tiempoAll' name='tiempoAll' value="5" min='1' max='100'><br><br>
 
-    	<!-- // Boton para parar todo -->
-    	<button onclick="offAll();" id="prog3">Parar todos</button> 
-    	</div>
+    	
+  	</div>
   	
     	<!--
     	//Botones para futuras referencias
