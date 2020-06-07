@@ -12,7 +12,7 @@ dirFiles="/var/www/html/"
 confFile=dirFiles + "regadores.conf"
 crontabFile = dirFiles + "schedule.crontab"
 commandFile = dirFiles + "water.py"
-comando = "python "+commandFile 
+comando = "python3 "+commandFile 
 
 #Initialize Crontab
 my_cron = CronTab(user=usuario)

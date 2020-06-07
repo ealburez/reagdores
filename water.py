@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import RPi.GPIO as GPIO
-import sys, time, datetime,getpass
+import sys, time, datetime,getpass, psutil
 
 """
 can be called with the following argmunets
@@ -52,6 +52,12 @@ def writeLog(*kwargs):
 #------------------------------
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
+
+# Terminar cualquier proceso activo
+for proc in psutil.process_iter(['pid','cmdline']):
+	if 'water.py' in proc.cmdline() and proc.info['cmdline'][2] != '0':
+		proc.kill() 
+		print(proc.pid, proc.cmdline())
 
 #---Apagar todos los regadores---
 writeLog("----apagando todos----",len (sys.argv), getpass.getuser())
