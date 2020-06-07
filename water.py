@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import RPi.GPIO as GPIO
-import sys, time, datetime,getpass, psutil
+import sys, time, datetime,getpass, psutil,os
 
 """
 can be called with the following argmunets
@@ -55,7 +55,7 @@ GPIO.setwarnings(False)
 
 # Terminar cualquier proceso activo
 for proc in psutil.process_iter(['pid','cmdline']):
-	if 'water.py' in proc.cmdline() and proc.info['cmdline'][2] != '0':
+	if 'water.py' in proc.cmdline() and proc.info['cmdline'][2] != '0' and os.getpid() != proc.pid:
 		proc.kill() 
 		print(proc.pid, proc.cmdline())
 
