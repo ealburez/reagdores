@@ -41,6 +41,7 @@ log event
 def writeLog(*kwargs):
 	f = open(logFile, "a")
 	logOut=str(datetime.datetime.now().strftime("%x %X")) + " "
+	logOut += str(os.getpid()) + " "
 	for arg in kwargs:
 		logOut += str(arg) + " "
 	logOut += "\n"
