@@ -84,6 +84,7 @@ function regarNow(regadorID,timeSet){
     var request = new XMLHttpRequest()
     request.open("GET","save.php?water="+regadorID+"&tiempo="+timeSet,true);
     request.send(null);
+    alert ('Encendiendo regador '+regadorID)
     return 0;
 }
 //enciende todos los regadores uno detrás del otro
