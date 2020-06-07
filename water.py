@@ -56,9 +56,12 @@ GPIO.setwarnings(False)
 
 # Terminar cualquier proceso activo
 for proc in psutil.process_iter(['pid','cmdline']):
-	if 'water.py' in proc.cmdline() and proc.info['cmdline'][2] != '0' and os.getpid() != proc.pid:
-		proc.kill() 
-		print(proc.pid, proc.cmdline())
+	try:
+		if 'water.py' in proc.cmdline() and proc.info['cmdline'][2] != '0' and os.getpid() != proc.pid:
+			print(proc.pid, proc.cmdline())
+			proc.kill() 
+	except:
+		writeLog("PKILL ERROR")
 
 #---Apagar todos los regadores---
 writeLog("----apagando todos----",len (sys.argv), getpass.getuser())
